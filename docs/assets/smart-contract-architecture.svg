@@ -1,0 +1,249 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap');
+      text { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+      .title { font-weight: 800; font-size: 26px; fill: #ffffff; letter-spacing: -0.5px; }
+      .subtitle { font-weight: 500; font-size: 13px; fill: #94a3b8; letter-spacing: 1.5px; }
+      .box-title { font-weight: 700; font-size: 18px; }
+      .box-desc { font-weight: 400; font-size: 12px; fill: #475569; }
+      .sec-title { font-weight: 700; font-size: 12px; }
+      .func-text { font-weight: 500; font-size: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+      .arrow-label { font-weight: 600; font-size: 11px; fill: #334155; text-anchor: middle; }
+      .arrow-sub { font-weight: 400; font-size: 10px; fill: #64748b; text-anchor: middle; }
+      .center-title { font-weight: 700; font-size: 16px; fill: #0f172a; }
+      .center-desc { font-weight: 400; font-size: 11.5px; fill: #475569; text-anchor: middle; }
+      .footer-title { font-weight: 700; font-size: 13px; }
+      .footer-desc { font-weight: 400; font-size: 11px; fill: #64748b; }
+    </style>
+
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-blue-rev" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 8 1.5 L 0 5 L 8 8.5 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="800" fill="#f8fafc" rx="16"/>
+
+  <!-- Top Title Pill -->
+  <g transform="translate(300, 20)">
+    <rect width="600" height="74" rx="12" fill="#0b1e3b" filter="url(#card-shadow)"/>
+    <text x="300" y="42" text-anchor="middle" class="title">Smart Contract Architecture</text>
+    <text x="300" y="62" text-anchor="middle" class="subtitle">Modular   •   Decoupled   •   Secure   •   Transparent</text>
+  </g>
+
+  <!-- Arrows & Labels between Contracts and Center -->
+
+  <!-- Top Horizontal: Identity <-> AccessControl -->
+  <line x1="390" y1="200" x2="810" y2="200" stroke="#2563eb" stroke-width="1.8" marker-start="url(#arrow-blue-rev)" marker-end="url(#arrow-blue)"/>
+  <rect x="480" y="172" width="240" height="34" rx="6" fill="#f8fafc"/>
+  <text x="600" y="186" class="arrow-label">Identity verification &amp; role assignment</text>
+  <text x="600" y="200" class="arrow-sub">(uses identity data and RBAC rules)</text>
+
+  <!-- Left Vertical: Identity <-> AssetNFT -->
+  <line x1="200" y1="360" x2="200" y2="440" stroke="#2563eb" stroke-width="1.8" marker-start="url(#arrow-blue-rev)" marker-end="url(#arrow-blue)"/>
+  <rect x="70" y="386" width="220" height="26" rx="4" fill="#f8fafc"/>
+  <text x="180" y="403" class="arrow-label" text-anchor="end">Identity validation</text>
+  <text x="180" y="415" class="arrow-sub" text-anchor="end">(for asset ownership)</text>
+
+  <!-- Right Vertical: AccessControl <-> AuditLogger -->
+  <line x1="1000" y1="375" x2="1000" y2="445" stroke="#2563eb" stroke-width="1.8" marker-start="url(#arrow-blue-rev)" marker-end="url(#arrow-blue)"/>
+  <rect x="1010" y="392" width="180" height="30" rx="4" fill="#f8fafc"/>
+  <text x="1015" y="405" class="arrow-label" text-anchor="start">Permission checks</text>
+  <text x="1015" y="418" class="arrow-sub" text-anchor="start">&amp; event logging</text>
+
+  <!-- Bottom Horizontal: AssetNFT <-> AuditLogger -->
+  <line x1="390" y1="600" x2="810" y2="600" stroke="#2563eb" stroke-width="1.8" marker-start="url(#arrow-blue-rev)" marker-end="url(#arrow-blue)"/>
+  <rect x="470" y="582" width="260" height="34" rx="6" fill="#f8fafc"/>
+  <text x="600" y="597" class="arrow-label">Record asset-related events</text>
+  <text x="600" y="611" class="arrow-sub">(transfers, mints, ownership changes)</text>
+
+  <!-- Diagonals to Center (User / Frontend) -->
+  <!-- Center: (490, 310, 220, 160) => Center point is (600, 390) -->
+
+  <!-- Identity <-> Center -->
+  <line x1="390" y1="310" x2="490" y2="350" stroke="#2563eb" stroke-width="1.8" marker-start="url(#arrow-blue-rev)" marker-end="url(#arrow-blue)"/>
+  <text x="440" y="315" class="arrow-label">Register / Verify</text>
+  <text x="440" y="328" class="arrow-sub">Identity</text>
+
+  <!-- AccessControl <-> Center -->
+  <line x1="810" y1="315" x2="710" y2="355" stroke="#2563eb" stroke-width="1.8" marker-start="url(#arrow-blue-rev)" marker-end="url(#arrow-blue)"/>
+  <text x="760" y="320" class="arrow-label">Check Roles / Permissions</text>
+  <text x="760" y="333" class="arrow-sub">(Access Control)</text>
+
+  <!-- AssetNFT <-> Center -->
+  <line x1="390" y1="465" x2="490" y2="430" stroke="#2563eb" stroke-width="1.8" marker-start="url(#arrow-blue-rev)" marker-end="url(#arrow-blue)"/>
+  <text x="440" y="468" class="arrow-label">Asset operations</text>
+  <text x="440" y="481" class="arrow-sub">(mint, transfer, verify)</text>
+
+  <!-- AuditLogger <-> Center -->
+  <line x1="810" y1="470" x2="710" y2="430" stroke="#2563eb" stroke-width="1.8" marker-start="url(#arrow-blue-rev)" marker-end="url(#arrow-blue)"/>
+  <text x="760" y="468" class="arrow-label">Log security events</text>
+  <text x="760" y="481" class="arrow-sub">(automatic / manual)</text>
+
+
+  <!-- CARD 1: Identity.sol (Top Left, Blue) -->
+  <g transform="translate(30, 120)">
+    <rect width="360" height="235" rx="14" fill="#f0f7ff" stroke="#38bdf8" stroke-width="2" filter="url(#card-shadow)"/>
+    <!-- Icon circle -->
+    <circle cx="45" cy="45" r="24" fill="#0284c7"/>
+    <!-- Fingerprint icon path -->
+    <path d="M45 32 A8 8 0 0 0 37 40 M45 28 A12 12 0 0 0 33 40 M45 36 A4 4 0 0 0 41 40 M45 40 L45 52 M41 44 A4 4 0 0 1 45 48 M49 40 A4 4 0 0 1 45 44" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <text x="82" y="40" class="box-title" fill="#0369a1">Identity.sol</text>
+    <text x="82" y="58" class="box-desc">Decentralized identity management</text>
+    <text x="82" y="73" class="box-desc">with cryptographic hash references</text>
+
+    <!-- Inner box -->
+    <rect x="20" y="92" width="320" height="125" rx="8" fill="#ffffff" stroke="#bae6fd" stroke-width="1.2"/>
+    <text x="35" y="112" class="sec-title" fill="#0369a1">Key Functions / Events</text>
+    <circle cx="40" cy="129" r="2.5" fill="#0284c7"/>
+    <text x="48" y="133" class="func-text" fill="#0f172a">registerIdentity()</text>
+    <circle cx="40" cy="147" r="2.5" fill="#0284c7"/>
+    <text x="48" y="151" class="func-text" fill="#0f172a">verifyIdentity()</text>
+    <circle cx="40" cy="165" r="2.5" fill="#0284c7"/>
+    <text x="48" y="169" class="func-text" fill="#0f172a">deactivateIdentity()</text>
+    <circle cx="40" cy="183" r="2.5" fill="#0284c7"/>
+    <text x="48" y="187" class="func-text" fill="#0f172a">reactivateIdentity()</text>
+    <circle cx="40" cy="201" r="2.5" fill="#0284c7"/>
+    <text x="48" y="205" class="func-text" fill="#0f172a">updateIdentityHash()</text>
+  </g>
+
+  <!-- CARD 2: ChainVaultAccessControl.sol (Top Right, Green) -->
+  <g transform="translate(810, 120)">
+    <rect width="360" height="250" rx="14" fill="#f0fdf4" stroke="#4ade80" stroke-width="2" filter="url(#card-shadow)"/>
+    <!-- Icon circle -->
+    <circle cx="45" cy="45" r="24" fill="#16a34a"/>
+    <!-- Shield check icon -->
+    <path d="M45 30 L55 34 V42 C55 49 45 54 45 54 C45 54 35 49 35 42 V34 Z" stroke="#ffffff" stroke-width="2" fill="none" stroke-linejoin="round"/>
+    <path d="M41 42 L44 45 L50 38" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="82" y="38" class="box-title" fill="#15803d">ChainVaultAccessControl.sol</text>
+    <text x="82" y="58" class="box-desc">Granular on-chain RBAC enforcement</text>
+
+    <!-- Inner box -->
+    <rect x="20" y="80" width="320" height="152" rx="8" fill="#ffffff" stroke="#bbf7d0" stroke-width="1.2"/>
+    <text x="35" y="100" class="sec-title" fill="#15803d">Key Functions / Events</text>
+    <circle cx="40" cy="117" r="2.5" fill="#16a34a"/>
+    <text x="48" y="121" class="func-text" fill="#0f172a">assignRole()</text>
+    <circle cx="40" cy="135" r="2.5" fill="#16a34a"/>
+    <text x="48" y="139" class="func-text" fill="#0f172a">removeRole()</text>
+    <circle cx="40" cy="153" r="2.5" fill="#16a34a"/>
+    <text x="48" y="157" class="func-text" fill="#0f172a">grantPermission()</text>
+    <circle cx="40" cy="171" r="2.5" fill="#16a34a"/>
+    <text x="48" y="175" class="func-text" fill="#0f172a">revokePermission()</text>
+    <circle cx="40" cy="189" r="2.5" fill="#16a34a"/>
+    <text x="48" y="193" class="func-text" fill="#0f172a">hasRole()</text>
+    <circle cx="40" cy="207" r="2.5" fill="#16a34a"/>
+    <text x="48" y="211" class="func-text" fill="#0f172a">hasPermission()</text>
+  </g>
+
+  <!-- CENTER CARD: User / Frontend -->
+  <g transform="translate(490, 310)">
+    <rect width="220" height="150" rx="14" fill="#f5f3ff" stroke="#818cf8" stroke-width="2" filter="url(#card-shadow)"/>
+    <!-- User avatar icon -->
+    <circle cx="110" cy="40" r="14" fill="#1e1b4b"/>
+    <path d="M96 66 C96 58 102 54 110 54 C118 54 124 58 124 66 Z" fill="#1e1b4b"/>
+    <text x="110" y="90" text-anchor="middle" class="center-title">User / Frontend</text>
+    <text x="110" y="112" class="center-desc">Interacts with contracts</text>
+    <text x="110" y="128" class="center-desc">through a web3 wallet / dApp</text>
+  </g>
+
+  <!-- CARD 3: AssetNFT.sol (Bottom Left, Orange) -->
+  <g transform="translate(30, 445)">
+    <rect width="360" height="235" rx="14" fill="#fff7ed" stroke="#fb923c" stroke-width="2" filter="url(#card-shadow)"/>
+    <!-- Icon circle -->
+    <circle cx="45" cy="45" r="24" fill="#ea580c"/>
+    <rect x="33" y="35" width="24" height="20" rx="3" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <text x="45" y="49" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff">NFT</text>
+    <text x="82" y="40" class="box-title" fill="#c2410c">AssetNFT.sol</text>
+    <text x="82" y="58" class="box-desc">ERC-721 tokenized digital asset ownership</text>
+
+    <!-- Inner box -->
+    <rect x="20" y="85" width="320" height="132" rx="8" fill="#ffffff" stroke="#fed7aa" stroke-width="1.2"/>
+    <text x="35" y="105" class="sec-title" fill="#c2410c">Key Functions / Events</text>
+    <circle cx="40" cy="122" r="2.5" fill="#ea580c"/>
+    <text x="48" y="126" class="func-text" fill="#0f172a">mintAsset()</text>
+    <circle cx="40" cy="140" r="2.5" fill="#ea580c"/>
+    <text x="48" y="144" class="func-text" fill="#0f172a">assignAsset()</text>
+    <circle cx="40" cy="158" r="2.5" fill="#ea580c"/>
+    <text x="48" y="162" class="func-text" fill="#0f172a">transferAsset()</text>
+    <circle cx="40" cy="176" r="2.5" fill="#ea580c"/>
+    <text x="48" y="180" class="func-text" fill="#0f172a">verifyAsset()</text>
+    <circle cx="40" cy="194" r="2.5" fill="#ea580c"/>
+    <text x="48" y="198" class="func-text" fill="#0f172a">getAssetDetails()</text>
+  </g>
+
+  <!-- CARD 4: AuditLogger.sol (Bottom Right, Purple) -->
+  <g transform="translate(810, 445)">
+    <rect width="360" height="235" rx="14" fill="#faf5ff" stroke="#c084fc" stroke-width="2" filter="url(#card-shadow)"/>
+    <!-- Icon circle -->
+    <circle cx="45" cy="45" r="24" fill="#9333ea"/>
+    <rect x="35" y="33" width="20" height="24" rx="2" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <line x1="39" y1="39" x2="51" y2="39" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="39" y1="44" x2="51" y2="44" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="39" y1="49" x2="47" y2="49" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="82" y="40" class="box-title" fill="#7e22ce">AuditLogger.sol</text>
+    <text x="82" y="58" class="box-desc">Append-only immutable security event log</text>
+
+    <!-- Inner box -->
+    <rect x="20" y="85" width="320" height="132" rx="8" fill="#ffffff" stroke="#e9d5ff" stroke-width="1.2"/>
+    <text x="35" y="105" class="sec-title" fill="#7e22ce">Key Functions / Events</text>
+    <circle cx="40" cy="122" r="2.5" fill="#9333ea"/>
+    <text x="48" y="126" class="func-text" fill="#0f172a">logEvent()</text>
+    <circle cx="40" cy="140" r="2.5" fill="#9333ea"/>
+    <text x="48" y="144" class="func-text" fill="#0f172a">getAuditRecord()</text>
+    <circle cx="40" cy="158" r="2.5" fill="#9333ea"/>
+    <text x="48" y="162" class="func-text" fill="#0f172a">getRecentEvents()</text>
+    <circle cx="40" cy="176" r="2.5" fill="#9333ea"/>
+    <text x="48" y="180" class="func-text" fill="#0f172a">getTotalEvents()</text>
+  </g>
+
+  <!-- BOTTOM FOOTER PILLS / SUMMARY -->
+  <g transform="translate(30, 710)">
+    <!-- Pill 1: Identity -->
+    <g transform="translate(0, 0)">
+      <circle cx="20" cy="25" r="18" fill="#0284c7"/>
+      <path d="M20 16 A5 5 0 0 0 15 21 M20 13 A8 8 0 0 0 12 21 M20 21 L20 29" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      <text x="48" y="20" class="footer-title" fill="#0369a1">Identity.sol</text>
+      <text x="48" y="36" class="footer-desc">Manages decentralized identity</text>
+      <text x="48" y="49" class="footer-desc">with cryptographic hash references.</text>
+    </g>
+
+    <!-- Pill 2: Access Control -->
+    <g transform="translate(290, 0)">
+      <circle cx="20" cy="25" r="18" fill="#16a34a"/>
+      <path d="M20 15 L26 18 V23 C26 27 20 30 20 30 C20 30 14 27 14 23 V18 Z" stroke="#ffffff" stroke-width="1.6" fill="none"/>
+      <path d="M17 23 L19 25 L23 20" stroke="#ffffff" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <text x="48" y="20" class="footer-title" fill="#15803d">ChainVaultAccessControl.sol</text>
+      <text x="48" y="36" class="footer-desc">Enforces granular RBAC</text>
+      <text x="48" y="49" class="footer-desc">(roles and permissions) on-chain.</text>
+    </g>
+
+    <!-- Pill 3: Asset NFT -->
+    <g transform="translate(600, 0)">
+      <circle cx="20" cy="25" r="18" fill="#ea580c"/>
+      <rect x="12" y="17" width="16" height="16" rx="2" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+      <text x="20" y="29" text-anchor="middle" font-size="7.5" font-weight="800" fill="#ffffff">NFT</text>
+      <text x="48" y="20" class="footer-title" fill="#c2410c">AssetNFT.sol</text>
+      <text x="48" y="36" class="footer-desc">Handles ERC-721 tokenized</text>
+      <text x="48" y="49" class="footer-desc">digital asset ownership.</text>
+    </g>
+
+    <!-- Pill 4: Audit Logger -->
+    <g transform="translate(880, 0)">
+      <circle cx="20" cy="25" r="18" fill="#9333ea"/>
+      <rect x="13" y="16" width="14" height="18" rx="2" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+      <line x1="16" y1="20" x2="24" y2="20" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="16" y1="24" x2="24" y2="24" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round"/>
+      <text x="48" y="20" class="footer-title" fill="#7e22ce">AuditLogger.sol</text>
+      <text x="48" y="36" class="footer-desc">Maintains an immutable</text>
+      <text x="48" y="49" class="footer-desc">log of all critical security events.</text>
+    </g>
+  </g>
+</svg>
